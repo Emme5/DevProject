@@ -16,6 +16,7 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import ManageBooks from "../pages/dashboard/manageBooks/ManageBooks";
 import AddBook from "../pages/dashboard/addBook/AddBook";
 import UpdateBook from "../pages/dashboard/EditBook/UpdateBook";
+import Book from "../pages/home/books/Book";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,11 @@ const router = createBrowserRouter([
       {
         path: "/book/:id",
         element: <SingleBook/>,
+        errorElement: <ErrorBoundary />, // ตัวแจ้ง ERROR ในหน้าเว็บ
+      },
+      {
+        path: "/book",
+        element: <Book/>,
         errorElement: <ErrorBoundary />, // ตัวแจ้ง ERROR ในหน้าเว็บ
       },
     ],
