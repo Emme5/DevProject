@@ -19,87 +19,89 @@ import UpdateBook from "../pages/dashboard/EditBook/UpdateBook";
 import Book from "../pages/home/books/Book";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorBoundary />, // ตัวแจ้ง ERROR ในหน้าเว็บ
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/orders",
-        element: <PrivateRoute><OrderPage/></PrivateRoute>,
-      },
-      {
-        path: "/about",
-        element: <div>About</div>,
-      },
-      {
-        path: "/login",
-        element: <Login/>,
-      },
-      {
-        path: "/register",
-        element: <Register/>,
-      },
-      {
-        path: "/cart",
-        element: <CartPage/>,
-      },
-      {
-        path: "/checkout",
-        element: <PrivateRoute><CheckoutPage/></PrivateRoute>,
-      },
-      {
-        path: "/book/:id",
-        element: <SingleBook/>,
-        errorElement: <ErrorBoundary />, // ตัวแจ้ง ERROR ในหน้าเว็บ
-      },
-      {
-        path: "/book",
-        element: <Book/>,
-        errorElement: <ErrorBoundary />, // ตัวแจ้ง ERROR ในหน้าเว็บ
-      },
-    ],
-  },
-  {
-    path: "/admin",
-    element: <AdminLogin/>
-  },
-  {
-    path: "/dashboard",
-    element: <AdminRoute>
-      <DashboardLayout/>
-    </AdminRoute>,
-    children: [
-      {
-        path: "",
-        element: <AdminRoute>
-          <Dashboard/>
-        </AdminRoute>
-      },
-      {
-        path: "add-new-book",
-        element: <AdminRoute>
-          <AddBook/>
-        </AdminRoute>
-      },
-      {
-        path: "edit-book/:id",
-        element: <AdminRoute>
-          <UpdateBook/>
-        </AdminRoute>
-      },
-      {
-        path: "manage-books",
-        element: <AdminRoute>
-          <ManageBooks/>
-        </AdminRoute>
-      }
-    ]
-  }
+	{
+		path: "/",
+		element: <App />,
+		errorElement: <ErrorBoundary />, // ตัวแจ้ง ERROR ในหน้าเว็บ
+		children: [
+			{
+				path: "/",
+				element: <Home />,
+			},
+			{
+				path: "/orders",
+				element: (
+					<PrivateRoute>
+						<OrderPage />
+					</PrivateRoute>
+				),
+			},
+			{
+				path: "/about",
+				element: <div>About</div>,
+			},
+			{
+				path: "/login",
+				element: <Login />,
+			},
+			{
+				path: "/register",
+				element: <Register />,
+			},
+			{
+				path: "/cart",
+				element: <CartPage />,
+			},
+			{
+				path: "/checkout",
+				element: (
+					<PrivateRoute>
+						<CheckoutPage />
+					</PrivateRoute>
+				),
+			},
+			{
+				path: "/book/:id",
+				element: <SingleBook />,
+				errorElement: <ErrorBoundary />, // ตัวแจ้ง ERROR ในหน้าเว็บ
+			},
+			{
+				path: "/book",
+				element: <Book />,
+				errorElement: <ErrorBoundary />, // ตัวแจ้ง ERROR ในหน้าเว็บ
+			},
+		],
+	},
+	{
+		path: "/admin",
+		element: <AdminLogin />,
+	},
+	{
+		path: "/dashboard",
+		element: (
+			<AdminRoute>
+				<DashboardLayout />
+			</AdminRoute>
+		),
+		children: [
+			{
+				path: "",
+				element: <Dashboard />,
+			},
+			{
+				path: "add-new-book",
+				element: <AddBook />,
+			},
+			{
+				path: "edit-book/:id",
+				element: <UpdateBook />,
+			},
+			{
+				path: "manage-books",
+				element: <ManageBooks />,
+			},
+		],
+	},
 ]);
 
 export default router;
