@@ -13,7 +13,7 @@ const AddBook = () => {
     const onSubmit = async (data) => {
         const newBookData = {
             ...data,
-            coverImage: imageFileName
+            coverImage: imageFile
         }
         try {
             await addBook(newBookData).unwrap();

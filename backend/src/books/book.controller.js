@@ -3,7 +3,10 @@ const Book = require("./book.model");
 // Create a new book
 const postABook = async (req, res) => {
     try {
-        const newBook = new Book({ ...req.body });
+        console.log(req.body)
+        const newBook = new Book({ ...req.body,
+            coverImage: req.file.filename
+         });
         await newBook.save();
         res.status(201).send({ message: "Book posted successfully", book: newBook });
     } catch (error) {
