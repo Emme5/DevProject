@@ -1,5 +1,7 @@
-function getImgUrl (name) {
-    return new URL(`../assets/books/${name}`, import.meta.url)
+import getBaseUrl from "./baseURL";
+
+function getImgUrl(name) {
+	return new URL(getBaseUrl() + "/uploads/" + name, import.meta.url);
 }
 
-export {getImgUrl}
+export { getImgUrl };

@@ -2,6 +2,7 @@ const express = require('express');
 const Book = require('./book.model');
 const { postABook, getAllBooks, getSingleBook, UpdateBook, deleteABook } = require('./book.controller');
 const verifyAdminToken = require('../middleware/verifyAdminToken');
+const upload = require('../../storage');
 const router = express.Router();
 
 // frontend => to backend server => controller => book schema => database => send to server =>
@@ -12,7 +13,7 @@ const router = express.Router();
 // delete = when delete something
 
 // post a book
-router.post("/create-book", verifyAdminToken, postABook )
+router.post("/create-book", upload.single('coverImage'),verifyAdminToken, postABook )
 
 // get all books
 router.get("/", getAllBooks);
@@ -21,7 +22,7 @@ router.get("/", getAllBooks);
 router.get("/:id", getSingleBook);
 
 // update a book endpoint
-router.put("/edit/:id", verifyAdminToken, UpdateBook);
+router.put("/edit/:id", upload.single('coverImage'),verifyAdminToken, UpdateBook);
 
 // delete a book endpoint
 router.delete("/delete/:id", verifyAdminToken, deleteABook)

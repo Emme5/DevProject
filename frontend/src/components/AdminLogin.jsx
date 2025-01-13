@@ -19,14 +19,8 @@ const AdminLogin = () => {
         const onSubmit = async (data) => {
           console.log(data)
             try {
-              const response = await axios.post(`${getBaseUrl()}/api/auth/admin`, data, {
-                headers: {
-                  "Content-Type": "application/json",
-                  'Authorization': `Bearer ${token}` // ส่ง Token ในรูปแบบ Bearer
-                }
-              })
+              const response = await axios.post(`${getBaseUrl()}/api/auth/admin`, data)
               const auth = response.data;
-              console.log(auth)
               if (auth.token) {
                 localStorage.setItem('token', auth.token);
                 setTimeout(() => {
