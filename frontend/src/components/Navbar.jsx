@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import {  FaBars } from "react-icons/fa6";
+import {  FaBagShopping, FaBars } from "react-icons/fa6";
 import { MdCheckCircle, MdDashboard, MdReceipt, MdShoppingCart } from "react-icons/md";
 import { ImSearch } from "react-icons/im";
 import { FaHome, FaRegUserCircle } from "react-icons/fa";
@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { useAuth } from "../context/AuthContext";
 
 const navigation = [
+    { name: "เลือกซื้อ", href: "/book", icon: <FaBagShopping className="inline-block mr-2 text-2xl"/> },
     { name: "Dashboard", href: "/dashboard", icon: <MdDashboard className="inline-block mr-2 text-2xl"/> },
     { name: "Orders", href: "/orders", icon: <MdReceipt className="inline-block mr-2 text-2xl"/> },
     { name: "Cart Page", href: "/cart", icon: <MdShoppingCart className="inline-block mr-2 text-2xl"/> },
