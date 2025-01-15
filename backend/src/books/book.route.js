@@ -25,6 +25,6 @@ router.get("/:id", getSingleBook);
 router.put("/edit/:id", upload.single('coverImage'),verifyAdminToken, UpdateBook);
 
 // delete a book endpoint
-router.delete("/delete/:id", verifyAdminToken, deleteABook)
+router.delete("/:id", verifyAdminToken, deleteABook)
 
 module.exports = router;
